@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+
+    </head>
+    <body>
+        {% for video in videos %}
+        <video controls width="320">
+            <source src="{{ video.file.url }}" type="video/mp4">
+            <source src="{{ video.file.url }}" type="video/webm">
+            <source src="{{ video.file.url }}" type="video/ogg">
+            <source src="{{ video.file.url }}" type="video/quicktime">
+
+            Ваш браузер не поддерживает видео.
+        </video>
+    {% endfor %}
+    <div>dbg</div>
+ 
+        
+        <script src="" async defer></script>
+    </body>
+</html>

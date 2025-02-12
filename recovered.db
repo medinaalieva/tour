@@ -1,0 +1,5 @@
+PRAGMA foreign_keys=OFF;
+BEGIN;
+PRAGMA writable_schema = on;
+PRAGMA writable_schema = off;
+COMMIT;

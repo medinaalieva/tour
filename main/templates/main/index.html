@@ -1,0 +1,1331 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% comment %} bootsrtap {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    {% comment %} css {% endcomment %}
+    <link rel="stylesheet" href="{% static 'main/static/css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+                  body {
+                      font-family: Arial, sans-serif;
+                  }
+
+
+
+
+                  .text-overlay {
+                    font-size: 446%;
+                    color: rgb(255, 255, 255);
+                    font-weight:400;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    text-align: center;
+                    line-height: 1;
+                  }
+
+                  .gallery-wrapper {
+                      display: flex;
+                      justify-content: end;
+    
+                      margin-top: 2%;
+
+                  }
+
+                  html {
+                    scroll-behavior: smooth;
+                }
+
+                  .gallery-container {
+                      display: flex;
+                      overflow-x: auto;
+                      gap: 14px;
+                      white-space: nowrap;
+                      width: 82%;
+                      padding: 10px;
+                      scroll-behavior: smooth;
+
+                scrollbar-width: none;
+                -ms-overflow-style: none; /
+                  }
+
+                  .gallery-container img {
+                      max-height: 261px;
+                      width: auto;
+                      flex-shrink: 0;
+
+                  }
+
+        .scroll-container {
+          display: flex;
+          justify-content: center;
+          margin-top: 6%;
+
+        }
+        .all-container{
+          background-color: rgb(241, 235, 235);
+          max-width: 100%;
+          height: 550px;
+          margin-top: 40px;
+          
+        }
+
+
+        .media-pfoto{
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+          max-width: 65%;
+          margin: 0 auto;
+       
+          
+     
+
+
+        }
+
+        .media-grid{
+          margin: 0 auto;
+          width: 86%;
+        }
+
+
+
+
+
+        .media-image, .media-video {
+        width: 90%;
+          
+        position: absolute;
+         bottom: -14px; 
+      
+
+        }
+       
+
+
+
+
+                .scroll-button.scroll-left {
+                    margin-left: 47%;
+                    border: none;
+                    background-color: white;
+                    border-radius: 100%;
+                    margin-top: 5%;
+                }
+
+                .scroll-button.scroll-right {
+
+                    border: none;
+                    background-color:white;
+                    border-radius: 100%;
+                }
+
+                .full-width-half-height-container {
+                  width: 106%;
+                  height: 50vh;
+
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+
+
+
+        .gallery-image {
+          width: 300px;
+          height: 300px;
+          object-fit: cover;
+        }
+
+
+        .pagination-container {
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        .pagination-links {
+          display: inline-block;
+        }
+
+        .pagination-link {
+          margin: 0 10px;
+          text-decoration: none;
+          color: #b1adad;
+          font-weight: bold;
+        }
+
+        .pagination-link:hover {
+          color: #007bff;
+        }
+
+        .current-page {
+          font-size: 16px;
+          font-weight: normal;
+          color: #fff8f8;
+        }
+
+
+
+        .pagination-container {
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .pagination-links {
+            display: inline-block;
+            list-style: none;
+        }
+
+        .pagination-link {
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 30px;
+            color: #cfcaca;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+
+        .pagination-link {
+            font-weight: bold;
+        }
+
+
+        .pagination-link.current {
+            color: #1347d8;
+
+            font-size: 25px;
+
+
+        }
+
+
+
+
+
+        .pagination-link.prev-page,
+        .pagination-link.next-page,
+        .pagination-link.first-page,
+        .pagination-link.last-page {
+            font-size: 30px;
+            color: #f1eeee;
+        }
+
+
+        .div-container{
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+          margin-left: 58px;
+  
+  
+
+
+        }
+        .div-container div {
+          max-width: 220px;
+       
+          margin-top: 5%;
+          text-align: center;
+
+        }
+        .div-container h4{
+          font-weight: bold;
+          font-size: 20px;
+
+        }
+        .div-container p{
+          font-size: 15px;
+
+
+
+        }
+
+
+        .container {
+          width: 70%;
+          margin: 20px auto;
+        }
+
+        .title {
+          writing-mode: vertical-rl;
+          transform: rotate(180deg);
+          font-size: 6rem;
+          color: #000000;
+          text-align: center;
+          text-align: end;
+          font-weight: bold;
+          margin-left: auto;
+
+        }
+
+        .content1{
+          border-left: 8px solid transparent;
+          border-image: linear-gradient(to bottom, #0078D4, #a1e1ff,white) 7;
+
+          padding: 20px;
+   
+
+        }
+        .content2{
+          border-left: 8px solid transparent;
+          border-image: linear-gradient(to bottom, #0078D4, #a1e1ff,white) 7;
+
+          padding: 20px;
+         margin-left: 49.5%;
+
+        }
+
+
+        .day {
+
+          margin-bottom: 10px;
+
+        }
+        .day h3{
+          font-size: 22px;
+
+        }
+        .day p{
+          margin-bottom: -2rem;
+          font-size: 14px;
+        }
+
+
+        .highlight {
+          color:  rgb(32, 201, 192);
+          margin-bottom: 10px;
+          font-weight: 400;
+          font-kerning: none;
+          font-size: 2rem;
+          margin-top: -155px;
+        }
+        
+
+        .footer {
+          margin-top: 30px;
+          text-align: center;
+          font-size: 0.9rem;
+          color: #777;
+        }
+
+        .icon {
+          color:  rgb(32, 201, 192);
+          font-size: 3rem;
+          margin-top: -155px;
+
+
+        }
+
+        .btn-hoverr{
+          background: linear-gradient(to right, #8de3ff, #8c00c4);
+          width:198px;
+          font-size:15px;
+           border: none;
+            color:
+            white; border-radius: 25px 25px 25px 25px;
+  
+        }
+
+
+        .btn-hoverr:hover {
+          transform: scale(1.1);
+        }
+
+
+        .btn-hoverr:active{
+          transform: scale(0.95);
+        }
+
+        .btn-hoverr1:hover {
+          transform: scale(1.1);
+        }
+
+
+        .btn-hoverr1:active{
+          transform: scale(0.95);
+        }
+
+
+
+
+        .btn-hoverr1{
+          background-color:
+            white; font-size:large; 
+             border-radius: 22%; 
+              width:259px;   opacity: 1;
+                border-radius: 25px 25px 25px 25px;
+                  border:none;
+           font-size: 15px;                     
+      font-weight: bold;
+       color:#217e05;
+        }
+
+
+
+        .btn-hover2:hover {
+          transform: scale(1.1);
+        }
+
+
+        .btn-hover2:active{
+          transform: scale(0.95);
+        }
+
+
+        .btn-hoverr3{
+          background: linear-gradient(to right, #00bfff, #8a2be2);
+          font-size: larger;
+          margin-top: 4%;
+          padding-block: 10px;
+          opacity: 1;
+          width: 230px;
+          border-radius: 22px 22px 22px 22px;
+          border: none;
+          font-weight: bold;
+          color: #ffffff;
+          text-align: center;
+        }
+        .btn-hoverr3:hover {
+          transform: scale(1.1);
+        }
+
+
+        .btn-hoverr3:active{
+          transform: scale(0.95);
+        }
+
+
+
+
+
+        .btn-hover2{
+          background-color:
+            rgb(57, 161, 16); 
+               width:324px; 
+                 opacity: 1; 
+                  border-radius: 25px 25px 25px 25px;  
+                  border:none; 
+                   font-size: 20px; font-weight: bold; color:#ffffff;
+                   align-items: center;
+                   padding-block: 14px
+        }
+
+
+
+        .p-div{
+          font-size: 10px; margin-top: 4.5%; margin-left: 10%
+        }
+        
+
+
+
+        .faq-item {
+          border: 2px solid #ddd;
+          border-radius: 20px;
+          margin-bottom: 20px;
+          padding: 20px;
+          width: 45%;
+          margin-left: 28%;
+        }
+
+        .faq-question {
+          font-size: 1.1rem;
+          font-weight: bold;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .icon-div{
+          margin-left: 12%; margin-top: 4%
+        }
+
+        .faq-answer {
+          display: none;
+          margin-top: 10px;
+          font-size: 1rem;
+          color: #555;
+          width: 84%;
+        }
+
+        .icon2 {
+          font-size: 1.2rem;
+          transition: transform 0.3s;
+        }
+
+        .icon2.open {
+          transform: rotate(45deg);
+
+        }
+
+
+        .image-container {
+          width: 100%;
+          height: 128vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          background-image: url(static/img/TOUR-Efffects.jpg);
+        }
+
+
+
+        .linee{
+          position: absolute; top: 72%; left: 51%; transform: translate(-50%, -50%); width: 644px; height: 88px; border: 1px solid #939393; background-color: transparent; z-index: -1; border-radius:50px;
+        }
+
+        .kyrgys-das{
+          text-align: center;
+          line-height: 1.5;
+          margin: 0;
+          color: white;
+          line-height: 1.3;
+          font-weight:bold;
+          font-size: 100%;
+          max-width: 659px;
+        }
+
+
+        .div-tour{
+          display: flex;
+          gap: 10px;
+          border: 2px solid white;
+          border-radius: 40px;
+          padding: 10px;
+          max-width: 500px;
+        }
+
+        .div-tour button {
+          padding-block: 10px;
+        }
+
+        .span-kyr{
+          font-size: 182%;
+           display: block;
+           margin-bottom: 2%;
+           padding-top: 5%;
+           text-align: center;
+           font-weight:bold;
+           line-height: 1.2;
+        }
+
+        .span-maunt{
+
+          font-size: 116%;
+           text-align: center;
+          line-height: 1.2;
+        }
+        .img-logo {
+          width: 100%;
+       
+          top: -132px;
+        }
+
+        .div-footer{
+          display: flex;
+        }
+
+        .opyt{
+          font-size: 120%; display: block; top:-40px; padding-top: 5%; text-align: center; font-weight:700; line-height: 1;
+        }
+
+        .opyt-span{
+          font-size: 90%;  text-align: center; font-weight:400; line-height: 1.2;
+        }
+        .div-logoo{
+          width: 15%; color: #4e4c4c; margin-left: 20%
+        }
+
+        .media-item{
+          margin-top: 10%;
+          position: relative;
+          width: 100%;
+          height: 150px; /* Укажи нужную высоту */
+          overflow: hidden;
+          object-fit: cover;
+        }
+
+        .media-item video {
+    
+          top: 70%;
+          left: 50%;
+          transform: translate(-50%, -85%);
+          min-width: 100%;
+          min-height: 100%;
+          width: 200px;
+          height: auto;
+      }
+
+      .main-div{
+        display: flex;
+      }
+
+      .discr1{
+        display: block;
+     width: 44%;
+     margin-left: 20%;
+     margin-top: 10%;
+     font-size: 80%;
+     }
+
+     .attention-icon{
+      margin-left: 47%; margin-top: 3%
+
+    }
+
+     .discr2{
+      display: block;
+         width: 50%;
+         margin-left: 6%;
+         margin-top: 10%;
+         font-size: 80%;
+    }
+        
+
+    .photo-discr1{
+      width: 73%; height: 400px; object-fit: cover
+
+    }
+    .photo-discr2{
+      width: 57%; height: 400px; object-fit: cover
+    }
+    .big-div{
+      display: flex;     justify-content: center;
+     margin-top: 130px
+    }
+
+    .small-div{
+      display: flex;  margin-top: 120%
+    }
+
+    .paragraff{
+      gap: 20px;
+      font-weight: bold;
+      font-size: 140%;
+      gap: 100px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .paragraff2{
+      text-align: center; margin-top: -15px; gap: 20px
+    }
+
+      
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+          const answer = item.querySelector(".faq-answer");
+          const icon = question.querySelector(".icon");
+
+          question.addEventListener("click", () => {
+            const isOpen = answer.style.display === "block";
+            answer.style.display = isOpen ? "none" : "block";
+            icon.classList.toggle("open", !isOpen);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    {% block content %}
+
+    <div class="image-container">
+      <div class="line-container">
+        <img class="img-logo" src="static/img/IMG_3804.PNG" alt="" />
+        <svg viewBox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0,50 Q500,150 1000,50"
+            stroke="url(#gradient)"
+            stroke-width="5"
+            fill="transparent"
+          />
+          <defs>
+            <linearGradient
+              id="gradient"
+              gradientUnits="userSpaceOnUse"
+              x1="0"
+              y1="50"
+              x2="1000"
+              y2="50"
+            >
+              <stop offset="0%" stop-color="gold" />
+              <stop offset="25%" stop-color="cyan" />
+              <stop offset="50%" stop-color="white" />
+              <stop offset="75%" stop-color="cyan" />
+              <stop offset="100%" stop-color="gold" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <!-- <img class="img-tekst" src="static/img/TOUR-Efffects.jpg" alt="Placeholder Image"> -->
+
+      <div class="text-overlay">
+        ТЕКСТИЛЬНЫЙ ТУР <br />
+        <strong>В КЫРГЫЗСТАН</strong>
+      </div>
+
+      <div class="div-tour">
+        <a href="https://wa.me/996552755477">
+          
+          <button class="btn-hoverr1" type="button" \>
+            Попасть в тур в кыргызстан
+          </button>
+        </a>
+        <br />
+
+        <a href="https://wa.me/996552755477">
+
+          <button class="btn-hoverr" type="button" \>
+            Связаться с нами
+          </button>
+        </a>
+
+      
+      </div>
+
+      <p class="kyrgys-das">
+        Кыргызстан — это страна, которая сочетает в себе динамично развивающийся
+        рынок и потрясающую природу. Ваш бизнес-тур здесь станет не просто
+        встречей, а важным этапом в расширении вашего бизнеса.
+      </p>
+
+    <img
+        style="width: 5%;  color: gold"
+        src="static/img/icons8-шеврон-вниз-48.png"
+        alt=""
+      /> a
+
+
+     
+    </div>
+
+    <div class="span-kyr">
+      <span style="color: rgb(43, 37, 37)">Красота Кыргызстана</span>
+    </div>
+
+    <div class="span-maunt">
+      <span style="color: rgb(49, 49, 49); top: -100px"
+        >От гор до швейных мастерских - фотографии, открывающие <br />
+        Кыргызстан с двух сторон.</span
+      >
+    </div>
+
+    <div class="gallery-wrapper">
+      <div class="gallery-container" id="gallery">
+        {% for image in page_obj %}
+        <img src="{{ image.image.url }}" alt="Изображение" />
+        {% empty %}
+        <p>Нет изображений</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Левая кнопка -->
+    <div
+      class="scroll-btn"
+      style="right: 100px; display: flex; justify-content: center"
+    > 
+      <button
+        style="border: none; background: none"
+        onclick="scrollGallery(-1)"
+      >
+        <img src="{% static 'img/right-arrow(3).png' %}" alt="Scroll Left" />
+      </button>
+
+      <!-- Правая кнопка -->
+      <button style="border: none; background: none" onclick="scrollGallery(1)">
+        <img src="{% static 'img/right-arrow(2).png' %}" alt="Scroll Right" />
+      </button>
+    </div>
+    <script>
+      function scrollGallery(direction) {
+        const container = document.querySelector(".gallery-container");
+        const scrollAmount = 300;
+        container.scrollBy({
+          left: direction * scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    </script>
+
+    <div class="opyt">
+      Наш опыт и <br />
+      возможности <br />
+      <span> для вашего бизнеса</span>
+    </div>
+
+    <div class="opyt-span">
+      <span style="color: rgb(49, 49, 49); top: -100px"
+        >Мы уже провели множество бизнес-туров в Китай, где
+        <strong>
+          помогли нашим клиентам найти <br />надежных поставщиков
+        </strong>
+        на крупнейших оптовых рынках. Сейчас мы предлагаем
+        <strong
+          >уникальные <br />возможности для бизнеса в Кыргызстане.
+        </strong>
+        На протяжении многих лет мы
+        <strong>
+          работаем с крупными <br />
+          швейными производствами,</strong
+        >
+        которые успешно функционируют на рынке уже более 15 лет.</span
+      >
+    </div>
+
+
+
+
+    
+
+    <div class="all-container">
+
+        <!-- Кнопки переключения страниц -->
+    <div style="justify-content: center; padding:20px;" class="pagination">
+      <button style="color: #5b5252; margin: 0 10px; background-color: rgb(255, 255, 255); border:none;  border-radius: 40px;" id="prev-page" class="btn btn-primary">  <img src="static/img/right-arrow(3).png" alt=""></button>
+  
+      <button style="color: #5b5252;  background-color: rgb(255, 255, 255); border:none;  border-radius: 40px;"  id="next-page" class="btn btn-primary"><img src="static/img/right-arrow(2).png" alt=""></button>
+    </div>
+      <div class="media-grid">
+      
+
+
+
+
+        <div class="media-pfoto">
+          {% for image in images2|slice:":8" %}
+          <div class="media-item">
+            <img
+              style="object-fit: cover"
+              class="media-image"
+              src="{{ image.file.url }}"
+              alt="Image2"
+            />
+          </div>
+          {% endfor %} {% for video in videos %}
+          <div class="media-item">
+            <video class="media-video" controls>
+              <!-- Добавляем несколько форматов видео -->
+              <source src="{{ video.file.url }}" type="video/mp4" />
+              <source src="{{ video.file.url }}" type="video/webm" />
+              <source src="{{ video.file.url }}" type="video/ogg" />
+              <source src="{{ video.file.url }}" type="video/quicktime" />
+
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+          {% endfor %}
+        </div>
+
+
+
+    
+      
+      </div>
+    
+    </div>
+
+
+
+
+
+    
+  
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mediaItems = document.querySelectorAll(".media-item");
+        const itemsPerPage = 8;
+        let currentPage = 1;
+        let totalPages = Math.ceil(mediaItems.length / itemsPerPage);
+    
+        function showPage(page) {
+          mediaItems.forEach((item, index) => {
+            item.style.display =
+              index >= (page - 1) * itemsPerPage && index < page * itemsPerPage
+                ? "block"
+                : "none";
+          });
+          document.getElementById("page-info").textContent = page;
+        }
+    
+        document.getElementById("prev-page").addEventListener("click", function () {
+          if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+          }
+        });
+    
+        document.getElementById("next-page").addEventListener("click", function () {
+          if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+          }
+        });
+    
+        showPage(currentPage);
+      });
+    </script>
+    
+
+
+    
+
+    <div
+      style="
+        font-size: 164%;
+        display: block;
+        margin-bottom: 0%;
+        padding-top: 4%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 1.2;
+      "
+    >
+      <span  id="target" style="color: rgb(20, 18, 18)"
+        >Как найти готовую <br />
+        нишу <br />
+        на рынке Кыргызстана</span
+      >
+    </div>
+
+    <div class="target"
+      style="
+        font-size: 108%;
+        text-align: center;
+        font-weight: 400;
+        line-height: 1.2;
+      "
+    >
+      <span  style="color: rgb(49, 49, 49); top: -100px"
+        >Покажем, как избежать ненужных затрат времени и найти <br />
+        уже существующую нишу.</span
+      >
+    </div>
+
+    <div class="div-container">
+      <div>
+        <img src="static/img/sew(1).png" alt="" />
+        <h4>Лекало</h4>
+        <p>
+          Как не ошибиться <br />
+          в изготовлении лекала
+        </p>
+      </div>
+      <div style="margin-left: 10px">
+        <img class="lecalo"
+          style="margin-top: 6%"
+          src="static/img/free-icon-textile-2100020(1).png"
+          alt=""
+        />
+        <h4 class="tkani" style="margin-top: 25px">Ткани</h4>
+        <p>
+          Как найти хорошие ткани если вы хотите начать шить свой бренд
+          предоставляем сборник поставщиков с Китая
+        </p>
+      </div>
+      <div>
+        <img
+          style="margin-top: 6%"
+          src="static/img/free-icon-production-2252197(1).png"
+          alt=""
+        />
+        <h4 style="margin-top: 20px">Производство</h4>
+        <p>Как выбрать швейное производство</p>
+      </div>
+    </div>
+<a href="https://wa.me/996552755477">
+ <div style="display: flex; justify-content: center; ">
+
+   <button
+   class="btn-hover2"
+   
+   type="button"
+   >
+   Хочу попасть в тур
+  </button>
+</a>
+</div>
+
+
+
+    <div class="big-div" >
+      <div>
+      
+        <div class="title">Программа <br />Тура</div>
+        <div class="small-div">
+          <span class="icon">⚡</span>
+          <div class="highlight">
+            <p style="font-family: 'Pacifico', cursive;margin-right: 141px;  width: max-content">
+              Подготовьтесь <br />
+              <strong> к незабываемым <br />впечатлениям <br /></strong>и
+              выгодным <br />
+              сделкам!
+            </p>
+          </div>
+        </div>
+      </div>
+ 
+
+      <div>
+        <div class="day">
+          <div class="content1">
+            <h3><strong>День 1:</strong> Прилет и первое <br />знакомство</h3>
+            <p>
+              - Встреча в аэропорту и трансфер в отель. 
+              <br>- Покупка местных
+              SIM-карт для удобства связи. <br />
+              - Заселение в комфортный отель. <br />
+              - Ужин в ресторане с национальной кухней, <br />
+              где вы сможете познакомиться с культурой страны.
+            </p>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="content1">
+            <h3>
+              <strong>День 2:</strong>Активный шопинг<br />
+              на рынке Дордой
+            </h3>
+            <p>
+              Обмен валюты для удобства покупок. <br />
+              - Утром отправляемся на рынок Дордой! <br />
+              Общий обзор рынка так как он достаточно большой,<br />
+              здесь закупаются 70% селлеров ВБ смотрим разные<br />
+              ниши: одежда,обувь,верхняя одежда(куртки шубы<br />
+              пальто)головные уборы, нижнее белье, косметика,<br />
+              мыло мойка и многое другое <br />
+              - После прогулка по торговым центрам города для<br />
+              покупки брендовых товаров и уникальных<br />
+              предложений включая продукцию Apple, золото,<br />
+              серебро и высококачественную косметику из Кореи,<br />
+              Японии и Америки по выгодным ценам. <br />
+              - Ужин и расслабляющий отдых после насыщенного дня.
+            </p>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="content1">
+            <h3>
+              <strong>День 3:</strong> Исследование рынка Мадина <br />
+              и швейного производства
+            </h3>
+            <p>
+              - Утром экскурсия на рынок Мадина. <br />
+              - Далее — посещение наших швейных партнеров,<br />
+              изучение работы нескольких швейных цехов. Здесь<br />
+              вы увидите производство из первых уст и сможете<br />
+              задать все интересующие вас вопросы. <br />
+              - Вечером организуем сетевой нетворкинг, где вы<br />
+              сможете обменяться опытом с другими<br />
+              предпринимателями и установить новые контакты.
+            </p>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="content1">
+            <h3><strong>День 4:</strong> Завершение закупок</h3>
+            <p>
+              - Завершающий день! Мы отправимся на рынки<br />
+              для заключительных закупок. <br />
+              - Отправим ваши товары через местные карго<br />
+              в нужный регион для удобства доставки. <br />
+              - При необходимости будет организован еще<br />
+              один визит в швейные цеха. <br />
+            </p>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="content1">
+            <h3>
+              <strong>День 5:</strong> Расслабление<br />
+              и наслаждение природой
+            </h3>
+            <p>
+              - После насыщенных дней — день для отдыха <br />
+              и наслаждения горными пейзажами. <br />
+              - Поездка в горный отель с горячими источниками<br />
+              и термальной водой, где вы сможете отдохнуть<br />
+              и расслабиться в бане.
+            </p>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="content1">
+            <h3><strong>День 6:</strong> Возвращение домой</h3>
+            <p>
+              -- Отлет и завершение вашего уникального<br />
+              путешествия в Киргизию.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="tour"
+      style="
+        gap: 20px;
+        font-weight: bold;
+        font-size: 140%;
+        text-align: center;
+        margin-top: 10px;
+      "
+    >
+      В стоимость тура включено:
+    </p>
+    <p class="proj" style="text-align: center; margin-top: -15px">
+      Проживание в отеле(уютные чистые 2,3,4х местные номера в <br />
+      хостеле в центре города)на базе завтрака
+    </p>
+
+    <div class="content2"></div>
+
+    <p
+      style="
+        gap: 20px;
+        font-weight: bold;
+        font-size: 140%;
+        gap: 100px;
+        text-align: center;
+        margin-top: 10px;
+      "
+    >
+      Сопровождение на все <br />
+      время тура от нас:
+    </p>
+    <p class="wir" style="text-align: center; margin-top: -15px; gap: 20px">
+      Мы предлагаем полное сопровождение на протяжении всего <br />вашего
+      бизнес-тура, обеспечивая комфорт и поддержку <br />
+      в каждом шаге вашего путешествия.
+    </p>
+
+    <div class="main-div" >
+
+      <img class="photo-discr1"
+
+        src="static/img/IMG_7344-_1_.jpg"
+        alt=""
+      />
+
+      <div class="discr1">
+        <span style="display: block;">
+          <strong
+            >Руслан - предприниматель, организатор <br />
+            бизнес туров в Китай, Кыргызстан, селлер на <br />ВБ:
+          </strong></span
+        >
+        <p>
+          Нурбек - опытный предприниматель, который <br />
+          специализируется на организации бизнес- <br />
+          туров в Китай и Кыргызстан. Его знания и опыт <br />
+          в сфере бизнеса, а также его роль селлера на <br />
+          Wildberries, помогут вам найти новые <br />
+          возможности для вашего бизнеса.
+        </p>
+      </div>
+    </div>
+
+   
+   
+    <div class="main-div">
+      <div class="discr2"
+      >
+        <span>
+          <strong
+            >Алина- байер на Дордое, экскурсовод <br />
+            с отличным знанием рынков, маркетолог <br />
+            и селлер на ВБ:
+          </strong></span
+        >
+        <p>
+          Нурмина обладает глубоким пониманием <br />рынков, особенно рынка
+          Дордой, где она <br />работает как байер. Её навыки экскурсовода,
+          <br />
+          маркетолога и селлера на Wildberries <br />обеспечат вам уникальные
+          инсайты и помогут <br />в продвижении вашего бренда..
+        </p>
+      </div>
+
+    
+      <img class="photo-discr2"
+        src="static/img/IMG_3743 (1).JPG"
+        alt=""
+      />
+    </div>
+
+    <div class="content2"></div>
+
+    <p
+      style="
+        gap: 20px;
+        font-weight: bold;
+        font-size: 140%;
+        gap: 100px;
+        text-align: center;
+        margin-top: 10px;
+      "
+    >
+      Комплексная организация <br />
+      Бизнес-Туров
+    </p>
+    <p class="p-div2" style="text-align: center; margin-top: -15px; gap: 20px">
+      Мы организуем встречи с основателями производств <br />
+      различных масштабов, от небольших мастерских до крупных <br />
+      фабрик. Включаем в программу посещение фабрик и цехов <br />
+      для глубокого понимания производственных процессов. <br />
+      Обеспечиваем трансфер на все время по программе для <br />
+      вашего удобства и комфорта
+    </p>
+
+  
+    <img class="attention-icon"
+      src="static/img/free-icon-complain-1041891 (1).png"
+      alt=""
+    />
+
+  
+    <p class="paragraff"
+    >
+      Исключения из стоимости
+    </p>
+
+    
+    <p class="paragraff2" >
+      <strong
+        >Обратите внимание, что в стоимость наших услуг НЕ <br />входит:
+        международные авиабилеты, питание <br />
+        и личные расходы.</strong
+      >
+    </p>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Тур подходит только действующим предпринимателям?
+        <span class="icon2">+</span>
+      </div>
+      <div class="faq-answer">
+        Ответ: Тур подойдет как действующим предпринимателям, так и начинающим,
+        кто хочет пощупать, найти свою нишу, так как в Кыргызстане самые
+        минимальные цены.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Смысл платить вам если я могу поехать сам?
+        <span class="icon2">+</span>
+      </div>
+      <div class="faq-answer">
+        Ответ:Да конечно, вы можете приехать самостоятельно, наша страна всегда
+        рада иностранным туристам ☀️. Мы предлагаем наш тур тем, кто не хочет
+        тратить много времени на поиск и коннект с поставщиками (особенно на
+        самом важном рынке Мадина, на котором 99% поставщиков уйгуры, которые не
+        говорят на русском языке). Мы уже подготовили для вас насыщенную
+        программу и базу поставщиков как из Кыргызстана, так и из Китая. Каждая
+        минута будет расписана, чтобы вы не тратили время на самостоятельные
+        поиски цехов, поставщиков, трансфера, отелей, машин и лучших ресторанов.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Входит ли питание?
+        <span class="icon2">+</span>
+      </div>
+      <div class="faq-answer">
+        Ответ: Отель будет на базе завтрака, питание в течение дня мы
+        организуем. Еда в Кыргызстане настолько вкусная, что вы сами захотите
+        платить за нее.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Какие еще бонусы будут?
+        <span class="icon2">+</span>
+      </div>
+      <div class="faq-answer">
+        Ответ: Обязательно. Помимо собранных ценных производств и поставщиков,
+        мы дарим вам в будущем скидку 25% на последующие туры в Китай 🇨🇳, если
+        вы хотите идти еще дальше покорять мир бизнеса ✨.
+      </div>
+    </div>
+    <div style="display: flex;     justify-content: center;">
+
+      
+      <a href="https://wa.me/996552755477">
+        <button
+        class="btn-hoverr3"
+        type="button"
+        class="btn btn-lg btn-primary"
+        
+        >
+        Заказать тур
+      </button>
+    </a>
+  </div>
+    <hr
+      style="
+        border: 1px solid black;
+        width: 62%;
+        margin-left: 20%;
+        margin-top: 5%;
+      "
+    />
+
+    <div class="div-footer ">
+     
+      <img class="div-logoo"
+      
+        src="static/img/IMG_3804 (1).png"
+        alt=""
+      />
+     
+      <p class="p-div">
+        © 2025 - Все права защищены
+      </p>
+    
+      <div class="icon-div" >
+        <img src="static/img/free-icon-facebook-733603.png" alt="" />
+        <a
+          href="https://www.instagram.com/level_tour.kg?igsh=MXAwdjZqbDJkd2t5eA=="
+          ><img src="static/img/free-icon-video-15678556.png" alt=""
+        /></a>
+      </div>
+    </div>
+
+    {% endblock %} {% comment %} js for bootsrtap {% endcomment %}
+    <script
+      src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"
+      async
+      defer
+    ></script>
+  </body>
+</html>
