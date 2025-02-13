@@ -386,4 +386,7 @@ line-container img {
   margin-top: 7% !important;
   margin-left: 0% !important;
 }
+.attention-icon {
+  margin-left: 130px !important;
+}
 }
